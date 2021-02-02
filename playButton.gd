@@ -45,13 +45,13 @@ func _process(delta):
 		overlay.modulate.a = min(overlay.modulate.a + 0.75 * delta, 1)
 	
 	if can_click and not credits_open:
-		if over_start:
-			if Input.is_action_just_pressed("ui_click"):
-				start()
+#		if over_start:
+#			if Input.is_action_just_pressed("ui_click"):
+#				start()
 
-		if over_credits and not credits_open:
-			if Input.is_action_just_pressed("ui_click") and not buffer:
-				credits()
+#		if over_credits and not credits_open:
+#			if Input.is_action_just_pressed("ui_click") and not buffer:
+#				credits()
 		if Input.is_action_just_pressed("credits_gamepad") and not credits_open:
 			credits()
 
@@ -67,6 +67,12 @@ func _process(delta):
 			get_tree().get_root().get_node("TitleScreen").get_node("Credits").hide()
 			credits_open = false
 
+func _input(event: InputEvent) -> void:
+	if event is InputEventMouseButton and event.button_index == BUTTON_LEFT and event.is_pressed():
+		if over_start:
+			start()
+		if over_credits and not credits_open and not buffer:
+			credits()
 
 func start():
 	#$SoundClick.play()

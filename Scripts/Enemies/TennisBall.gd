@@ -4,7 +4,7 @@ onready var sprite = $Sprite
 
 var start_pos
 
-var prefab = preload("res://Prefabs/Enemies/EnemyTennisBall.tscn")
+var prefab_path = "res://Prefabs/Enemies/EnemyTennisBall.tscn"
 
 func _ready():
 	mode = MODE_STATIC
@@ -15,11 +15,11 @@ func _process(delta):
 	sprite.rotation += 16*delta
 
 func throw():
-	mode = MODE_RIGID
-	set_linear_velocity(Vector2(-speed,0))
+	set_deferred("mode", MODE_RIGID)
+	set_deferred("linear_velocity", Vector2(-speed,0))
 
 func _on_game_reset():
-	var new_ball = prefab.instance()
+	var new_ball = load(prefab_path).instance()
 	new_ball.global_position = start_pos
 	get_parent().add_child(new_ball)
 	queue_free()

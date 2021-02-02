@@ -19,7 +19,7 @@ func _on_GrabArea_body_entered(body):
 		$Sprite/AnimationPlayer.play("Win")
 		$SoundGust.play()
 		fade = true
-		Controller.get_player().mode = RigidBody2D.MODE_STATIC
+		Controller.get_player().set_deferred("mode", RigidBody2D.MODE_STATIC)
 		$TimerChangeLevel.start()
 
 func _on_ReachArea_body_entered(body):
