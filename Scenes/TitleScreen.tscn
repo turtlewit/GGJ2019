@@ -154,7 +154,6 @@ align = 1
 
 [node name="PartsWind" parent="." instance=ExtResource( 9 )]
 scale = Vector2( 2, 2 )
-emitting = false
 follow_player = false
 [connection signal="mouse_entered" from="playButton/ClickArea" to="playButton" method="_on_ClickArea_mouse_entered"]
 [connection signal="mouse_exited" from="playButton/ClickArea" to="playButton" method="_on_ClickArea_mouse_exited"]

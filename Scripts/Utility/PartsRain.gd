@@ -1,4 +1,4 @@
-extends Particles2D
+extends CPUParticles2D
 
 func _process(delta):
 	var player = Controller.get_player()
