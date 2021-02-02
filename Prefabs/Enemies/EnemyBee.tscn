@@ -31,7 +31,6 @@ petal_constant = 3
 
 [node name="Sprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 1 )
-frame = 2
 playing = true
 __meta__ = {
 "_edit_lock_": true
@@ -44,7 +43,6 @@ __meta__ = {
 }
 
 [node name="PartsTrail" type="CPUParticles2D" parent="."]
-emitting = false
 amount = 32
 lifetime = 2.0
 local_coords = false
